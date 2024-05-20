@@ -10,6 +10,6 @@ A plugin for Rich Whitehouse's Noesis to import and export Ghost of Tsushima tex
 Opening a .sps file with Noesis will automatically load it, once the plugin is installed.
 
 ## Credits:
-- Thanks to AlphaZomega for his guidence and his fmt_RE_Mesh plugin.
+- Thanks to AlphaZomega for his guidence and his work on the [fmt_RE_Mesh](https://github.com/alphazolam/fmt_RE_MESH-Noesis-Plugin) Noesis plugin.
 ### Support:
 If you have issues with the plugin, create an issue here or join [Modding Haven](https://discord.gg/modding-haven-718224210270617702) and message me on Discord
