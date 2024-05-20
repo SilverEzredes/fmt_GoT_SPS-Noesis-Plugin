@@ -28,7 +28,7 @@ def LoadRGBA(data, texList):
     version = bs.readUInt()
     bs.seek(16, 1)
     TextureDataOffset = bs.readUInt()
-    print(TextureDataOffset)
+    #print(TextureDataOffset)
     bs.seek(4, 1)
     TextureNameLenght = bs.readUInt()
     bs.seek(TextureNameLenght, 1)
