@@ -3,7 +3,7 @@
 #
 #      File: fmt_GoT_SPS.py
 #    Author: SilverEzredes
-#   Version: May 20, 2024 - v1.0.0
+#   Version: May 20, 2024 - v1.0.1
 #   Purpose: To import and export Ghost of Tsushima .sps files
 #   Credits: alphaZomega
 #------------------------------------------------
@@ -27,11 +27,10 @@ def LoadRGBA(data, texList):
     magic = bs.readUInt()
     version = bs.readUInt()
     bs.seek(16, 1)
-    TextureDataOffset = bs.readUInt()
-    #print(TextureDataOffset)
+    textureDataOffset = bs.readUInt()
     bs.seek(4, 1)
-    TextureNameLenght = bs.readUInt()
-    bs.seek(TextureNameLenght, 1)
+    textureNameLenght = bs.readUInt()
+    bs.seek(textureNameLenght, 1)
     bs.seek(20, 1)
     dxgiFormat = bs.readUInt()
     print("DXGI Format: ", dxgiFormat)
@@ -39,9 +38,9 @@ def LoadRGBA(data, texList):
     print("Texture Width: ", width)
     height = bs.readUShort()
     print("Texture Height: ",height)
-    Depth = bs.readUShort()
-    MipMapCount = bs.readUShort()
-    print("MipMap Count: ",MipMapCount)
+    depth = bs.readUShort()
+    mipMapCount = bs.readUShort()
+    print("MipMap Count: ",mipMapCount)
     bs.seek(4, 1)
     
     if dxgiFormat == 251725312:
