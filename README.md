@@ -1,5 +1,5 @@
 # fmt_GoT_SPS-Noesis-Plugin
-A plugin for Rich Whitehouse's Noesis to import and export Ghost of Tsushima textures.
+A plugin for Rich Whitehouse's Noesis to import Ghost of Tsushima textures.
 
 *Cannot export files back to .sps
 # Installation:
