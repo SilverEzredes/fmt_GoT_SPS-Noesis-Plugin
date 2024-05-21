@@ -3,7 +3,7 @@
 #
 #      File: fmt_GoT_SPS.py
 #    Author: SilverEzredes
-#   Version: May 20, 2024 - v1.0.1
+#   Version: May 21, 2024 - v1.0.2
 #   Purpose: To import and export Ghost of Tsushima .sps files
 #   Credits: alphaZomega
 #------------------------------------------------
@@ -59,10 +59,14 @@ def LoadRGBA(data, texList):
         texData = bs.readBytes(width*height)
         texData = rapi.imageDecodeDXT(texData, width, height, noesis.FOURCC_BC5)
         print("Format: BC5_UNORM")
-    elif dxgiFormat == 251661824:
+    elif dxgiFormat == 251661824 or dxgiFormat == 251727360:
         texData = bs.readBytes(width*height)
         texData = rapi.imageDecodeDXT(texData, width, height, noesis.FOURCC_BC7)
         print("Format: BC7_UNORM_SRGB")
+    elif dxgiFormat == 251723776:
+        texData = bs.readBytes(width*height*4)
+        texData = rapi.imageDecodeRaw(texData, width, height, "B8G8R8A8")
+        print("Format: B8G8R8A8_UNORM")
     else:
         print("FATAL ERROR: Unsupported texture type!")
         return 0
