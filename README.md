@@ -10,6 +10,13 @@ A plugin for Rich Whitehouse's Noesis to import and export Ghost of Tsushima `.s
 
 Opening a .sps file with Noesis will automatically load it, once the plugin is installed.
 
+## Usage
+- Export `.sps` to either `.dds` or `.tga`
+- Edit the texture.
+- Save the texture as either `.dds` (if you are saving it as a dds make sure that the compression format matches the one in the Noesis Debug Log) or as `.tga` (32bit)
+- Open your texture in `Noesis -> Right Click -> Export -> Select .sps` (in the Main Output Type dropdown menu)
+- Select the **original** texture in the popup dialog.
+
 ## Credits:
 - Thanks to AlphaZomega for his guidence and his work on the [fmt_RE_Mesh](https://github.com/alphazolam/fmt_RE_MESH-Noesis-Plugin) Noesis plugin.
 ### Support:
