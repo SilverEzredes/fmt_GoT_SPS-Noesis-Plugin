@@ -10,7 +10,7 @@ A plugin for Rich Whitehouse's Noesis to import and export Ghost of Tsushima `.s
 
 Opening a .sps file with Noesis will automatically load it, once the plugin is installed.
 
-## Usage
+## Usage:
 - Export `.sps` to either `.dds` or `.tga`
 - Edit the texture.
 - Save the texture as either `.dds` (if you are saving it as a dds make sure that the compression format matches the one in the Noesis Debug Log) or as `.tga` (32bit)
