@@ -14,7 +14,7 @@ Opening a .sps file with Noesis will automatically load it, once the plugin is i
 - Export `.sps` to either `.dds` or `.tga`
 - Edit the texture.
 - Save the texture as either `.dds` (if you are saving it as a dds make sure that the compression format matches the one in the Noesis Debug Log) or as `.tga` (32bit)
-- Open your texture in `Noesis -> Right Click -> Export -> Select .sps` (in the Main Output Type dropdown menu)
+- Open your texture in Noesis `Right Click -> Export -> Select .sps` (in the Main Output Type dropdown menu)
 - Select the **original** texture in the popup dialog.
 
 ## Credits:
