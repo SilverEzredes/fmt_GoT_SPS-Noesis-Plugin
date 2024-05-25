@@ -3,13 +3,14 @@
 #
 #      File: fmt_GoT_SPS.py
 #    Author: SilverEzredes
-#   Version: May 22, 2024 - v1.0.4
+#   Version: May 25, 2024 - v1.0.5
 #   Purpose: To import and export Ghost of Tsushima .sps files
 #   Credits: alphaZomega
 #------------------------------------------------
 #--- Options:
-isGoTSPSExport = True       #Enable or disable export of .sps from the export list
-isDebug = False             #Enable or disable debug mode
+isGoTSPSExport  =   True    #Enable or disable export of .sps from the export list.
+isDebug         =   False   #Enable or disable debug mode.
+isFlipImage     =   True    #If set to True, textures will be flipped upright on import then flipped upside down again on export.
 #------------------------------------------------
 from inc_noesis import *
 
@@ -54,7 +55,7 @@ def spsLoadRGBA(data, texList):
     height = bs.readUShort()
     depth = bs.readUShort()
     mipMapCount = bs.readUShort()
-    print("Texture Height: ", height, "| Texture Width: ", width, "| MipMap Count: ",mipMapCount)
+    print("Texture Height: ", height, "| Texture Width: ", width, "| MipMap Count: ", mipMapCount)
     bs.seek(4, 1)
     
     if dxgiFormat == 251725312:
@@ -85,6 +86,10 @@ def spsLoadRGBA(data, texList):
         print("FATAL ERROR: Unsupported texture type!")
         return 0
     
+    if isFlipImage:
+        texData = rapi.imageFlipRGBA32(texData, width, height, 0, 1)
+        print("Image Flip Enabled")
+
     sps = NoeTexture("GoT.sps", width, height, texData, noesis.NOESISTEX_RGBA32)
     texList.append(sps)
 
@@ -138,10 +143,17 @@ def spsWriteRGBA(data, width, height, bs):
     mipWidth = width
     mipHeight = height
     
+    print ("----| Ghost of Tsushima Texture Export |----")
+    if isFlipImage:
+         print("Image Flip Enabled")
     if isDebug:
         print ("Writing Image Data at:", bs.tell())
+
     while mipWidth >= 1 and mipHeight >= 1:
         mipData = rapi.imageResample(data, width, height, mipWidth, mipHeight)
+        
+        if isFlipImage:
+            mipData = rapi.imageFlipRGBA32(mipData, mipWidth, mipHeight, 0, 1)
 
         if dxgiFormat == 251723776:
             dxtData = rapi.imageEncodeRaw(data, mipWidth, mipHeight, "B8G8R8A8_UNORM")
