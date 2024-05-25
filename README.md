@@ -16,7 +16,12 @@ Opening a .sps file with Noesis will automatically load it, once the plugin is i
 - Save the texture as either `.dds` (if you are saving it as a dds make sure that the compression format matches the one in the Noesis Debug Log) or as `.tga` (32bit)
 - Open your texture in Noesis `Right Click -> Export -> Select .sps` (in the Main Output Type dropdown menu)
 - Select the **original** texture in the popup dialog.
+## Options:
+`isGoTSPSExport`  =  Enable or disable export of `.sps` from the export list.
 
+`isDebug`         =  Enable or disable debug mode.
+
+`isFlipImage`     =  If set to `True`, textures will be flipped upright on import then flipped upside down again on export.
 ## Credits:
 - Thanks to AlphaZomega for his guidence and his work on the [fmt_RE_Mesh](https://github.com/alphazolam/fmt_RE_MESH-Noesis-Plugin) Noesis plugin.
 ### Support:
