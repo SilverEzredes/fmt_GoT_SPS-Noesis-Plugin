@@ -1,0 +1,39 @@
+//------------------------------------------------
+//--- 010 Editor v14.0.1 Binary Template
+//
+//      File: GoT_sps.bt
+//    Author: SilverEzredes 
+//   Version: May 25, 2024 - v1.0.0
+//   Purpose: Reading of Ghost of Tsushima .sps files
+//  Category: Modding
+// File Mask: *sps
+//  ID Bytes: 58 54 42 53
+//   History: 
+//------------------------------------------------
+
+typedef struct {
+    char Magic[4];
+    uint Version;
+    char unk1[8]; // Some kind of hashed string?
+    char unk2[8]; // Same as above
+    uint TextureDataOffset;
+    uint unk3; //Maybe texture count?
+    uint TextureNameLength;
+    char TextureNameString[TextureNameLength];
+    FSkip(4); // Looks like padding but might be extra bytes for the TextureNameLength
+    uint unk6; // End of something, this int is the same as unk11
+    uint unk7; // Some other count?
+    char unk8[8]; // Another hashed string?
+    uint DXGIFormat;
+    ushort TextureWidth;
+    ushort TextureHeight;
+    ushort Depth;
+    ushort MipMapCount;
+    uint unk11; // same as unk6
+    } Header <name="Header">;
+    
+    typedef struct {
+    Header header <bgcolor=0xf20014>;
+} Got_SPS;
+
+Got_SPS GOTSps <name="Ghost of Tsushima SPS File">;
